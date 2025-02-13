@@ -37,5 +37,11 @@
         <service id="BOWAutoInternalLinks\Service\LinkGenerationLogger">
             <argument>%kernel.project_dir%</argument>
         </service>
+
+        <service id="BOWAutoInternalLinks\Controller\Api\TagManagementController">
+            <argument type="service" id="BOWAutoInternalLinks\Service\TagManagementService"/>
+            <argument type="service" id="BOWAutoInternalLinks\Service\LinkGenerationLogger"/>
+            <tag name="controller.service_arguments"/>
+        </service>
     </services>
 </container>
