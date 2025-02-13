@@ -9,6 +9,15 @@
             <tag name="acl" for="bow_auto_links"/>
         </service>
 
+        <service id="bow_auto_link_tag.repository" class="Shopware\Core\Framework\DataAbstractionLayer\EntityRepository">
+            <argument type="service" id="BOWAutoInternalLinks\Core\Content\Tag\TagDefinition"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Read\EntityReaderInterface"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\VersionManager"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearcherInterface"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntityAggregatorInterface"/>
+            <argument type="service" id="event_dispatcher"/>
+        </service>
+
         <service id="BOWAutoInternalLinks\Service\LinkGeneratorService">
             <argument type="service" id="bow_auto_link.repository"/>
             <argument type="service" id="product.repository"/>
