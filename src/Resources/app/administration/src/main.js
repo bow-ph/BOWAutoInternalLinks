@@ -1,5 +1,9 @@
 import './module/bow-tag-management';
 
-// Registers your module when the administration starts
+// Initialize Shopware
 const { Module } = Shopware;
-Module.register('bow-tag-management');
+
+// Register the module
+if (Module.register('bow-tag-management')) {
+    console.log('BOW Auto Internal Links module registered successfully');
+}
