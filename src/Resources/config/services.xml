@@ -4,10 +4,23 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="BOWAutoInternalLinks\Service\TagLinkService">
+        <service id="BOWAutoInternalLinks\Service\LinkGeneratorService">
+            <argument type="service" id="bow_auto_link.repository"/>
             <argument type="service" id="product.repository"/>
             <argument type="service" id="category.repository"/>
-            <argument type="service" id="tag.repository"/>
+            <argument type="service" id="cache.app"/>
+        </service>
+
+        <service id="BOWAutoInternalLinks\Subscriber\ProductPageSubscriber">
+            <argument type="service" id="BOWAutoInternalLinks\Service\LinkGeneratorService"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="BOWAutoInternalLinks\Subscriber\CategoryPageSubscriber">
+            <argument type="service" id="BOWAutoInternalLinks\Service\LinkGeneratorService"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="kernel.event_subscriber"/>
         </service>
     </services>
 </container>
