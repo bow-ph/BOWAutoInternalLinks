@@ -1,6 +1,6 @@
+import './component/bow-tag-management';
+import './component/bow-log-viewer';
 import './page/bow-tag-management-index';
-import './page/bow-tag-management';
-import './page/bow-log-viewer';
 import './acl';
 
 import enGB from './snippet/en-GB.json';
@@ -26,30 +26,22 @@ Shopware.Module.register('bow-tag-management', {
         index: {
             component: 'bow-tag-management-index',
             path: 'index',
-            name: 'bow.tag.management.index',
             meta: {
                 parentPath: 'sw.marketing.index',
                 privilege: 'bow_auto_links.viewer'
-            },
-            redirect: {
-                name: 'bow.tag.management.management'
             },
             children: {
                 management: {
                     component: 'bow-tag-management',
                     path: 'management',
-                    name: 'bow.tag.management.management',
                     meta: {
-                        parentPath: 'bow.tag.management.index',
                         privilege: 'bow_auto_links.viewer'
                     }
                 },
                 logs: {
                     component: 'bow-log-viewer',
                     path: 'logs',
-                    name: 'bow.tag.management.logs',
                     meta: {
-                        parentPath: 'bow.tag.management.index',
                         privilege: 'bow_auto_links.viewer'
                     }
                 }
