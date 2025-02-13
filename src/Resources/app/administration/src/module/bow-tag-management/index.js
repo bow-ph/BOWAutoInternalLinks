@@ -47,7 +47,7 @@ Shopware.Module.register('bow-tag-management', {
         path: 'bow.tag.management.index',
         icon: 'default-shopping-paper-bag-product',
         position: 100,
-        parent: 'sw-marketing',
+        parent: 'sw.marketing.index',
         privilege: 'bow_auto_links.viewer'
     }]
 });
