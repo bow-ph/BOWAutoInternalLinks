@@ -1,0 +1,18 @@
+{
+    "bow-tag-management": {
+        "general": {
+            "mainMenuItemGeneral": "Auto Internal Links",
+            "descriptionTextModule": "Manage tag-based internal linking",
+            "refresh": "Refresh",
+            "priority": "Priority",
+            "statistics": "Statistics"
+        },
+        "list": {
+            "columnName": "Name",
+            "columnProducts": "Products",
+            "columnCategories": "Categories",
+            "columnLinks": "Auto Links",
+            "columnPriority": "Priority"
+        }
+    }
+}
