@@ -22,5 +22,20 @@
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
             <tag name="kernel.event_subscriber"/>
         </service>
+
+        <service id="BOWAutoInternalLinks\Subscriber\CmsPageSubscriber">
+            <argument type="service" id="BOWAutoInternalLinks\Service\LinkGeneratorService"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+
+        <service id="BOWAutoInternalLinks\Service\TagManagementService">
+            <argument type="service" id="tag.repository"/>
+            <argument type="service" id="bow_auto_link.repository"/>
+        </service>
+
+        <service id="BOWAutoInternalLinks\Service\LinkGenerationLogger">
+            <argument>%kernel.project_dir%</argument>
+        </service>
     </services>
 </container>
