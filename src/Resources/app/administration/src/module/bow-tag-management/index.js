@@ -48,6 +48,7 @@ Shopware.Module.register('bow-tag-management', {
     icon: 'default-shopping-paper-bag-product',
     entity: 'tag',
 
+
     snippets: {
         'en-GB': enGB,
         'de-DE': deDE
@@ -73,11 +74,13 @@ Shopware.Module.register('bow-tag-management', {
     },
 
     navigation: [{
+
         id: 'bow-tag-management',
         path: 'bow.tag.management.index',
         label: 'bow-tag-management.general.mainMenuItemGeneral',
         parent: 'sw.marketing.index',
         privilege: 'bow_auto_links.viewer',
         position: 100
+
     }]
 });
