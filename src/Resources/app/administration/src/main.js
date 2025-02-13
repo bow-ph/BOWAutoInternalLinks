@@ -1,10 +1,5 @@
-// Import module first to ensure proper registration
+// Import and register module
 import './module/bow-tag-management';
-
-// Import components after module registration
-import './module/bow-tag-management/page/bow-tag-management-index';
-import './module/bow-tag-management/page/bow-tag-management';
-import './module/bow-tag-management/page/bow-log-viewer';
 
 // Register the module
 Shopware.Module.register('bow-tag-management', {

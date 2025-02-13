@@ -1,6 +1,11 @@
 import enGB from './snippet/en-GB.json';
 import deDE from './snippet/de-DE.json';
 
+// Register module components
+import './page/bow-tag-management-index';
+import './page/bow-tag-management';
+import './page/bow-log-viewer';
+
 // Register snippets before ACL configuration
 Shopware.Application.addServiceProviderDecorator('snippetService', (service) => {
     service.extend('en-GB', enGB);

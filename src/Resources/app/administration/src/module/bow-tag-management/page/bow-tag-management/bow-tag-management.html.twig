@@ -1,19 +1,7 @@
 {% block bow_tag_management %}
-    <sw-page class="bow-tag-management">
-        {% block bow_tag_management_smart_bar %}
-            <template slot="smart-bar-header">
-                <h2>{{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}</h2>
-            </template>
-
-            <template slot="smart-bar-actions">
-                <sw-button variant="primary" @click="loadTags">
-                    {{ $tc('bow-tag-management.general.refresh') }}
-                </sw-button>
-            </template>
-        {% endblock %}
-
+    <div class="bow-tag-management">
         {% block bow_tag_management_content %}
-            <sw-card-view slot="content">
+            <sw-card-view>
                 {% block bow_tag_management_content_card %}
                     <sw-card :isLoading="isLoading">
                         {% block bow_tag_management_content_card_grid %}
@@ -40,5 +28,5 @@
                 {% endblock %}
             </sw-card-view>
         {% endblock %}
-    </sw-page>
+    </div>
 {% endblock %}
