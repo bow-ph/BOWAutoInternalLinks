@@ -18,6 +18,30 @@
             <argument type="service" id="event_dispatcher"/>
         </service>
 
+        <service id="bow_auto_link.repository" class="Shopware\Core\Framework\DataAbstractionLayer\EntityRepository">
+            <argument type="service" id="BOWAutoInternalLinks\Core\Content\AutoLink\AutoLinkDefinition"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Read\EntityReaderInterface"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\VersionManager"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearcherInterface"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntityAggregatorInterface"/>
+            <argument type="service" id="event_dispatcher"/>
+        </service>
+
+
+        <service id="BOWAutoInternalLinks\Core\Content\AutoLink\AutoLinkDefinition">
+            <tag name="shopware.entity.definition"/>
+        </service>
+
+        <service id="bow_auto_link.repository" class="Shopware\Core\Framework\DataAbstractionLayer\EntityRepository">
+            <argument type="service" id="BOWAutoInternalLinks\Core\Content\AutoLink\AutoLinkDefinition"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Read\EntityReaderInterface"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\VersionManager"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearcherInterface"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntityAggregatorInterface"/>
+            <argument type="service" id="event_dispatcher"/>
+        </service>
+
+
         <service id="BOWAutoInternalLinks\Service\LinkGeneratorService">
             <argument type="service" id="bow_auto_link_tag.repository"/>
             <argument type="service" id="product.repository"/>
@@ -45,7 +69,7 @@
 
         <service id="BOWAutoInternalLinks\Service\TagManagementService">
             <argument type="service" id="tag.repository"/>
-            <argument type="service" id="bow_auto_link_tag.repository"/>
+            <argument type="service" id="bow_auto_link.repository"/>
         </service>
 
         <service id="BOWAutoInternalLinks\Service\LinkGenerationLogger">

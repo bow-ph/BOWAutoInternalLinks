@@ -52,16 +52,18 @@ Component.register('bow-log-viewer', {
                     { headers: this.syncService.getBasicHeaders() }
                 );
 
-                // Transform data for grid display
-                this.logStats = Object.entries(response.data.generationsByType).map(([type, count]) => ({
-                    type,
-                    count
+                // Transform data for grid display with safe access
+                const generationsByType = response.data?.generationsByType || {};
+                this.logStats = Object.entries(generationsByType).map(([type, count]) => ({
+                    type: type || 'unknown',
+                    count: count || 0
                 }));
             } catch (e) {
                 this.createNotificationError({
                     title: 'Error',
                     message: e.message
                 });
+                this.logStats = [];
             } finally {
                 this.isLoading = false;
             }
