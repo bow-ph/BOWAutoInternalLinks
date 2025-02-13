@@ -9,10 +9,7 @@ class TagEntity extends Entity
 {
     use EntityIdTrait;
 
-    /**
-     * @var string
-     */
-    protected $name;
+    protected string $name;
 
     public function getName(): string
     {
