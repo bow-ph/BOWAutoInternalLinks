@@ -4,6 +4,11 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <service id="BOWAutoInternalLinks\Core\Content\Tag\TagDefinition">
+            <tag name="shopware.entity.definition"/>
+            <tag name="acl" for="bow_auto_links"/>
+        </service>
+
         <service id="BOWAutoInternalLinks\Service\LinkGeneratorService">
             <argument type="service" id="bow_auto_link.repository"/>
             <argument type="service" id="product.repository"/>
