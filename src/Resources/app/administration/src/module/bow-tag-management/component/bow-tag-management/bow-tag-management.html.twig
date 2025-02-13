@@ -9,7 +9,9 @@
                         :dataSource="tags"
                         :columns="columns"
                         :showSettings="true"
-                        :showSelection="false">
+                        :showSelection="false"
+                        :allowInlineEdit="true"
+                        :showActions="true">
 
                         {% block bow_tag_management_grid_columns_priority %}
                             <template #column-priority="{ item }">
@@ -20,6 +22,17 @@
                                     :max="10"
                                     :digits="1">
                                 </sw-number-field>
+                            </template>
+                        {% endblock %}
+
+                        {% block bow_tag_management_grid_actions %}
+                            <template #actions="{ item }">
+                                <sw-context-menu-item @click="onEditTag(item)">
+                                    {{ $tc('bow-tag-management.general.editTag') }}
+                                </sw-context-menu-item>
+                                <sw-context-menu-item @click="onViewLinks(item)">
+                                    {{ $tc('bow-tag-management.general.viewLinks') }}
+                                </sw-context-menu-item>
                             </template>
                         {% endblock %}
                     </sw-data-grid>
