@@ -15,6 +15,14 @@ Component.register('bow-tag-management-index', {
         };
     },
 
+    methods: {
+        loadTags() {
+            if (this.$refs.managementComponent) {
+                this.$refs.managementComponent.loadTags();
+            }
+        }
+    },
+
     created() {
         // Only redirect if we're on the index route and not already redirecting
         if (this.$route.name === 'bow.tag.management.index' && !this.$route.redirectedFrom) {
