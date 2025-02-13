@@ -38,49 +38,9 @@ Shopware.Service('privileges').addPrivilegeMappingEntry({
     }
 });
 
-// Register module
-Module.register('bow-tag-management', {
-    type: 'plugin',
-    name: 'BOW Auto Internal Links',
-    title: 'bow-tag-management.general.mainMenuItemGeneral',
-    description: 'bow-tag-management.general.descriptionTextModule',
-    color: '#ff3d58',
-    icon: 'default-shopping-paper-bag-product',
-    entity: 'tag',
-
-
-    snippets: {
-        'en-GB': enGB,
-        'de-DE': deDE
-    },
-
-    routes: {
-        index: {
-            component: 'bow-tag-management',
-            path: 'index',
-            meta: {
-                parentPath: 'sw.marketing.index',
-                privilege: 'bow_auto_links.viewer'
-            }
-        },
-        logs: {
-            component: 'bow-log-viewer',
-            path: 'logs',
-            meta: {
-                parentPath: 'sw.marketing.index',
-                privilege: 'bow_auto_links.viewer'
-            }
-        }
-    },
-
-    navigation: [{
-
-        id: 'bow-tag-management',
-        path: 'bow.tag.management.index',
-        label: 'bow-tag-management.general.mainMenuItemGeneral',
-        parent: 'sw.marketing.index',
-        privilege: 'bow_auto_links.viewer',
-        position: 100
-
-    }]
+// Register snippets for translations
+Shopware.Application.addServiceProviderDecorator('snippetService', (service) => {
+    service.extend('en-GB', enGB);
+    service.extend('de-DE', deDE);
+    return service;
 });
