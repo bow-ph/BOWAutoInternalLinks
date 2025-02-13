@@ -1,3 +1,8 @@
+// Import components first to ensure they're registered before module registration
+import './module/bow-tag-management/page/bow-tag-management';
+import './module/bow-tag-management/page/bow-log-viewer';
+
+// Import module after components
 import './module/bow-tag-management';
 
 // Register the module
