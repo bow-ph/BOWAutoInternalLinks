@@ -13,23 +13,21 @@
 
         {% block bow_tag_management_content %}
             <template slot="content">
-                <sw-card-view>
-                    <sw-card>
-                        <sw-tabs class="bow-tag-management-tabs">
-                            <sw-tabs-item 
-                                :route="{ name: 'bow.tag.management.management' }"
-                                :active="$route.name === 'bow.tag.management.management'">
-                                {{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}
-                            </sw-tabs-item>
-                            <sw-tabs-item 
-                                :route="{ name: 'bow.tag.management.logs' }"
-                                :active="$route.name === 'bow.tag.management.logs'">
-                                {{ $tc('bow-tag-management.general.logs') }}
-                            </sw-tabs-item>
-                        </sw-tabs>
-                        <router-view></router-view>
-                    </sw-card>
-                </sw-card-view>
+                <sw-container>
+                    <sw-tabs class="bow-tag-management-tabs">
+                        <sw-tabs-item 
+                            :route="{ name: 'bow.tag.management.management' }"
+                            :active="$route.name === 'bow.tag.management.management'">
+                            {{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}
+                        </sw-tabs-item>
+                        <sw-tabs-item 
+                            :route="{ name: 'bow.tag.management.logs' }"
+                            :active="$route.name === 'bow.tag.management.logs'">
+                            {{ $tc('bow-tag-management.general.logs') }}
+                        </sw-tabs-item>
+                    </sw-tabs>
+                </sw-container>
+                <router-view></router-view>
             </template>
         {% endblock %}
     </sw-page>

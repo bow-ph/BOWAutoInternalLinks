@@ -3,6 +3,7 @@ import './module/bow-tag-management';
 
 // Register the module
 Shopware.Module.register('bow-tag-management', {
+    flag: 'BOW_AUTO_INTERNAL_LINKS',
     type: 'plugin',
     name: 'BOW Auto Internal Links',
     title: 'bow-tag-management.general.mainMenuItemGeneral',
@@ -20,17 +21,14 @@ Shopware.Module.register('bow-tag-management', {
                 parentPath: 'sw.marketing.index',
                 privilege: 'bow_auto_links.viewer'
             },
-            redirect: {
-                name: 'bow.tag.management.management'
-            },
             children: {
                 management: {
                     component: 'bow-tag-management',
                     path: 'management',
                     name: 'bow.tag.management.management',
                     meta: {
-                        parentPath: 'bow.tag.management.index',
-                        privilege: 'bow_auto_links.viewer'
+                        privilege: 'bow_auto_links.viewer',
+                        parentPath: 'bow.tag.management.index'
                     }
                 },
                 logs: {
@@ -38,8 +36,8 @@ Shopware.Module.register('bow-tag-management', {
                     path: 'logs',
                     name: 'bow.tag.management.logs',
                     meta: {
-                        parentPath: 'bow.tag.management.index',
-                        privilege: 'bow_auto_links.viewer'
+                        privilege: 'bow_auto_links.viewer',
+                        parentPath: 'bow.tag.management.index'
                     }
                 }
             }
