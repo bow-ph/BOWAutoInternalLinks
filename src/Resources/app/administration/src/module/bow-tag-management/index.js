@@ -20,29 +20,30 @@ Shopware.Module.register('bow-tag-management', {
     description: 'bow-tag-management.general.descriptionTextModule',
     color: '#ff3d58',
     icon: 'default-shopping-paper-bag-product',
-    entity: 'tag',
 
     routes: {
         index: {
             component: 'bow-tag-management-index',
             path: 'index',
             meta: {
-                parentPath: 'sw.marketing.index',
-                privilege: 'bow_auto_links.viewer'
+                privilege: 'bow_auto_links.viewer',
+                parentPath: 'sw.marketing.index'
             },
             children: {
-                management: {
+                index: {
                     component: 'bow-tag-management',
-                    path: 'management',
+                    path: 'index',
                     meta: {
-                        privilege: 'bow_auto_links.viewer'
+                        privilege: 'bow_auto_links.viewer',
+                        parentPath: 'sw.marketing.index'
                     }
                 },
                 logs: {
                     component: 'bow-log-viewer',
                     path: 'logs',
                     meta: {
-                        privilege: 'bow_auto_links.viewer'
+                        privilege: 'bow_auto_links.viewer',
+                        parentPath: 'sw.marketing.index'
                     }
                 }
             }
@@ -51,7 +52,7 @@ Shopware.Module.register('bow-tag-management', {
 
     navigation: [{
         id: 'bow-tag-management',
-        path: 'bow.tag.management.index',
+        path: 'bow.tag.management.index.index',
         label: 'bow-tag-management.general.mainMenuItemGeneral',
         parent: 'sw-marketing',
         privilege: 'bow_auto_links.viewer',

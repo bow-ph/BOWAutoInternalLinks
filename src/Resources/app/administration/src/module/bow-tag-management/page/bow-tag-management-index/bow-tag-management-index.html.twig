@@ -4,31 +4,24 @@
             <template #smart-bar-header>
                 <h2>{{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}</h2>
             </template>
-
-            <template #smart-bar-actions>
-                <sw-button 
-                    v-if="$route.name === 'bow.tag.management.management'"
-                    variant="primary" 
-                    @click="loadTags">
-                    {{ $tc('bow-tag-management.general.refresh') }}
-                </sw-button>
-            </template>
         {% endblock %}
 
         {% block bow_tag_management_content %}
             <template #content>
-                <sw-tabs position-identifier="bow-tag-management-tabs">
-                    <sw-tabs-item 
-                        :route="{ name: 'bow.tag.management.management' }"
-                        :active="$route.name === 'bow.tag.management.management'">
-                        {{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}
-                    </sw-tabs-item>
-                    <sw-tabs-item 
-                        :route="{ name: 'bow.tag.management.logs' }"
-                        :active="$route.name === 'bow.tag.management.logs'">
-                        {{ $tc('bow-tag-management.general.logs') }}
-                    </sw-tabs-item>
-                </sw-tabs>
+                <sw-container>
+                    <sw-tabs position-identifier="bow-tag-management-tabs">
+                        <sw-tabs-item 
+                            :route="{ name: 'bow.tag.management.index.index' }"
+                            :active="$route.name === 'bow.tag.management.index.index'">
+                            {{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}
+                        </sw-tabs-item>
+                        <sw-tabs-item 
+                            :route="{ name: 'bow.tag.management.index.logs' }"
+                            :active="$route.name === 'bow.tag.management.index.logs'">
+                            {{ $tc('bow-tag-management.general.logs') }}
+                        </sw-tabs-item>
+                    </sw-tabs>
+                </sw-container>
                 <router-view></router-view>
             </template>
         {% endblock %}
