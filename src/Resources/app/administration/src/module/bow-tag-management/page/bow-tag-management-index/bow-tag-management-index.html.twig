@@ -1,30 +1,35 @@
 {% block bow_tag_management_index %}
     <sw-page class="bow-tag-management">
         {% block bow_tag_management_smart_bar %}
-            <template slot="smart-bar-header">
+            <template #smart-bar-header>
                 <h2>{{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}</h2>
+            </template>
+
+            <template #smart-bar-actions>
+                <sw-button 
+                    v-if="$route.name === 'bow.tag.management.management'"
+                    variant="primary" 
+                    @click="loadTags">
+                    {{ $tc('bow-tag-management.general.refresh') }}
+                </sw-button>
             </template>
         {% endblock %}
 
         {% block bow_tag_management_content %}
-            <template slot="content">
-                <sw-card-view>
-                    <sw-card>
-                        <sw-tabs class="bow-tag-management-tabs">
-                            <sw-tabs-item 
-                                :route="{ name: 'bow.tag.management.management' }"
-                                :active="$route.name === 'bow.tag.management.management'">
-                                {{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}
-                            </sw-tabs-item>
-                            <sw-tabs-item 
-                                :route="{ name: 'bow.tag.management.logs' }"
-                                :active="$route.name === 'bow.tag.management.logs'">
-                                {{ $tc('bow-tag-management.general.logs') }}
-                            </sw-tabs-item>
-                        </sw-tabs>
-                        <router-view></router-view>
-                    </sw-card>
-                </sw-card-view>
+            <template #content>
+                <sw-tabs position-identifier="bow-tag-management-tabs">
+                    <sw-tabs-item 
+                        :route="{ name: 'bow.tag.management.management' }"
+                        :active="$route.name === 'bow.tag.management.management'">
+                        {{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}
+                    </sw-tabs-item>
+                    <sw-tabs-item 
+                        :route="{ name: 'bow.tag.management.logs' }"
+                        :active="$route.name === 'bow.tag.management.logs'">
+                        {{ $tc('bow-tag-management.general.logs') }}
+                    </sw-tabs-item>
+                </sw-tabs>
+                <router-view></router-view>
             </template>
         {% endblock %}
     </sw-page>

@@ -1,44 +1,30 @@
 {% block bow_tag_management %}
-    <sw-page class="bow-tag-management">
-        {% block bow_tag_management_smart_bar %}
-            <template slot="smart-bar-header">
-                <h2>{{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}</h2>
-            </template>
-
-            <template slot="smart-bar-actions">
-                <sw-button variant="primary" @click="loadTags">
-                    {{ $tc('bow-tag-management.general.refresh') }}
-                </sw-button>
-            </template>
-        {% endblock %}
-
+    <sw-card-view class="bow-tag-management">
         {% block bow_tag_management_content %}
-            <sw-card-view slot="content">
-                {% block bow_tag_management_content_card %}
-                    <sw-card :isLoading="isLoading">
-                        {% block bow_tag_management_content_card_grid %}
-                            <sw-data-grid
-                                :dataSource="tags"
-                                :columns="columns"
-                                :showSettings="true"
-                                :showSelection="false">
+            <sw-card 
+                :isLoading="isLoading"
+                :large="true">
+                {% block bow_tag_management_content_grid %}
+                    <sw-data-grid
+                        :dataSource="tags"
+                        :columns="columns"
+                        :showSettings="true"
+                        :showSelection="false">
 
-                                {% block bow_tag_management_grid_columns_priority %}
-                                    <template #column-priority="{ item }">
-                                        <sw-number-field
-                                            :value="item.customFields ? item.customFields.bowAutoLinks.priority : 1"
-                                            @change="updatePriority(item)"
-                                            :min="0"
-                                            :max="10"
-                                            :digits="1">
-                                        </sw-number-field>
-                                    </template>
-                                {% endblock %}
-                            </sw-data-grid>
+                        {% block bow_tag_management_grid_columns_priority %}
+                            <template #column-priority="{ item }">
+                                <sw-number-field
+                                    :value="item.customFields ? item.customFields.bowAutoLinks.priority : 1"
+                                    @change="updatePriority(item)"
+                                    :min="0"
+                                    :max="10"
+                                    :digits="1">
+                                </sw-number-field>
+                            </template>
                         {% endblock %}
-                    </sw-card>
+                    </sw-data-grid>
                 {% endblock %}
-            </sw-card-view>
+            </sw-card>
         {% endblock %}
-    </sw-page>
+    </sw-card-view>
 {% endblock %}
