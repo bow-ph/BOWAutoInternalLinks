@@ -21,10 +21,15 @@ Component.register('bow-log-viewer', {
             logStats: null,
             columns: [{
                 property: 'type',
-                label: 'Type'
+                label: this.$tc('bow-tag-management.list.columnType'),
+                visible: true,
+                rawData: true
             }, {
                 property: 'count',
-                label: 'Count'
+                label: this.$tc('bow-tag-management.list.columnCount'),
+                visible: true,
+                rawData: true,
+                align: 'right'
             }]
         };
     },
@@ -46,7 +51,12 @@ Component.register('bow-log-viewer', {
                     '/_action/bow-auto-links/log-stats',
                     { headers: this.syncService.getBasicHeaders() }
                 );
-                this.logStats = response.data;
+
+                // Transform data for grid display
+                this.logStats = Object.entries(response.data.generationsByType).map(([type, count]) => ({
+                    type,
+                    count
+                }));
             } catch (e) {
                 this.createNotificationError({
                     title: 'Error',

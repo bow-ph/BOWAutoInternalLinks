@@ -15,7 +15,9 @@
             "columnProducts": "Produkte",
             "columnCategories": "Kategorien",
             "columnLinks": "Auto-Links",
-            "columnPriority": "Priorität"
+            "columnPriority": "Priorität",
+            "columnType": "Typ",
+            "columnCount": "Anzahl"
         }
     }
 }
