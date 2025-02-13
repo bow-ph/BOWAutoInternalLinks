@@ -45,7 +45,7 @@
 
         <service id="BOWAutoInternalLinks\Service\TagManagementService">
             <argument type="service" id="tag.repository"/>
-            <argument type="service" id="bow_auto_link.repository"/>
+            <argument type="service" id="bow_auto_link_tag.repository"/>
         </service>
 
         <service id="BOWAutoInternalLinks\Service\LinkGenerationLogger">
