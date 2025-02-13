@@ -16,6 +16,9 @@ Component.register('bow-tag-management-index', {
     },
 
     created() {
-        this.$router.push({ name: 'bow.tag.management.management' });
+        // Only redirect if we're on the index route
+        if (this.$route.name === 'bow.tag.management.index') {
+            this.$router.push({ name: 'bow.tag.management.management' });
+        }
     }
 });
