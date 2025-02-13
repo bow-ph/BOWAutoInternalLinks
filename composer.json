@@ -1,7 +1,7 @@
 {
     "name": "bow-ph/auto-internal-links",
     "description": "Automatically generates internal links between products, categories, and CMS pages based on shared Shopware tags",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "type": "shopware-platform-plugin",
     "license": "proprietary",
     "authors": [
