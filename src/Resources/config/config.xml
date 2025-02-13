@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Basic Configuration</title>
+        <title lang="de-DE">Grundeinstellungen</title>
+
+        <input-field type="int">
+            <name>maxLinksPerPage</name>
+            <label>Maximum links per page</label>
+            <label lang="de-DE">Maximale Links pro Seite</label>
+            <defaultValue>3</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>enableProductLinks</name>
+            <label>Enable product-to-product links</label>
+            <label lang="de-DE">Produkt-zu-Produkt-Links aktivieren</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+
+        <input-field type="bool">
+            <name>enableCategoryLinks</name>
+            <label>Enable category-to-product links</label>
+            <label lang="de-DE">Kategorie-zu-Produkt-Links aktivieren</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+</config>
