@@ -27,23 +27,31 @@ Component.register('bow-tag-management', {
                 routerLink: 'sw.tag.detail',
                 primary: true,
                 visible: true,
-                rawData: true
+                rawData: true,
+                inlineEdit: 'string'
             }, {
-                property: 'products.length',
+                property: 'products',
                 label: this.$tc('bow-tag-management.list.columnProducts'),
-                visible: true
+                visible: true,
+                sortable: false,
+                data: item => item.products ? item.products.length : 0
             }, {
-                property: 'categories.length',
+                property: 'categories',
                 label: this.$tc('bow-tag-management.list.columnCategories'),
-                visible: true
+                visible: true,
+                sortable: false,
+                data: item => item.categories ? item.categories.length : 0
             }, {
-                property: 'linkCount',
+                property: 'tagStats',
                 label: this.$tc('bow-tag-management.list.columnLinks'),
-                visible: true
+                visible: true,
+                sortable: false,
+                data: item => this.tagStats[item.id] ? this.tagStats[item.id].linkCount : 0
             }, {
                 property: 'priority',
                 label: this.$tc('bow-tag-management.list.columnPriority'),
-                visible: true
+                visible: true,
+                inlineEdit: 'number'
             }]
         };
     },
@@ -69,6 +77,7 @@ Component.register('bow-tag-management', {
             const criteria = new Criteria();
             criteria.addAssociation('products');
             criteria.addAssociation('categories');
+            criteria.addAssociation('customFields');
 
             try {
                 const tags = await this.tagRepository.search(criteria, Shopware.Context.api);
