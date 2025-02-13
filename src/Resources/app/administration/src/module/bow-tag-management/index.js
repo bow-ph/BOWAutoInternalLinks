@@ -11,6 +11,11 @@ Shopware.Module.register('bow-tag-management', {
     color: '#ff3d58',
     icon: 'default-shopping-paper-bag-product',
 
+    acl: {
+        privilege: 'bow_auto_links.viewer',
+        additional: ['tag:read']
+    },
+
     snippets: {
         'en-GB': enGB,
         'de-DE': deDE
