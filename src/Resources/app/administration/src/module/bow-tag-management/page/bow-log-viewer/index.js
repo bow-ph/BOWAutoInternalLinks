@@ -1,7 +1,5 @@
 import template from './bow-log-viewer.html.twig';
 
-const { Component } = Shopware;
-
 const { Component, Mixin } = Shopware;
 
 export default {
