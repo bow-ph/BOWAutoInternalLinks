@@ -2,11 +2,13 @@ import template from './bow-log-viewer.html.twig';
 
 const { Component, Mixin } = Shopware;
 
-export default {
+Component.register('bow-log-viewer', {
     template,
 
     inject: [
-        'repositoryFactory'
+        'repositoryFactory',
+        'httpClient',
+        'syncService'
     ],
 
     mixins: [
@@ -55,4 +57,4 @@ export default {
             }
         }
     }
-};
+});

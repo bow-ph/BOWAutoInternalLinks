@@ -8,6 +8,7 @@ Shopware.Module.register('bow-tag-management', {
     description: 'bow-tag-management.general.descriptionTextModule',
     color: '#ff3d58',
     icon: 'default-shopping-paper-bag-product',
+    entity: 'tag',
 
     routes: {
         index: {
