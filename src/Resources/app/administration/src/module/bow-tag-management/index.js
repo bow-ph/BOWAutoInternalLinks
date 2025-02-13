@@ -39,7 +39,7 @@ Shopware.Service('privileges').addPrivilegeMappingEntry({
 });
 
 // Register module
-Shopware.Module.register('bow-tag-management', {
+Module.register('bow-tag-management', {
     type: 'plugin',
     name: 'BOW Auto Internal Links',
     title: 'bow-tag-management.general.mainMenuItemGeneral',
