@@ -1,6 +1,6 @@
+import './component/bow-tag-management';
+import './component/bow-log-viewer';
 import './page/bow-tag-management-index';
-import './page/bow-tag-management';
-import './page/bow-log-viewer';
 import './acl';
 
 import enGB from './snippet/en-GB.json';
