@@ -4,13 +4,9 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="BOWAutoInternalLinks\Entity\AutoLinkDefinition">
+        <service id="BOWAutoInternalLinks\Core\Content\Tag\TagDefinition">
             <tag name="shopware.entity.definition"/>
-        </service>
-
-        <service id="BOWAutoInternalLinks\Acl\TagManagementAclPrivilegeDecorator">
-            <tag name="shopware.acl.privilege"/>
-            <argument type="service" id="Shopware\Core\Framework\Api\Acl\AclPrivilegeCollection"/>
+            <tag name="acl" for="bow_auto_links"/>
         </service>
 
         <service id="BOWAutoInternalLinks\Service\LinkGeneratorService">
