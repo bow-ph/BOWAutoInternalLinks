@@ -8,6 +8,11 @@
             <tag name="shopware.entity.definition"/>
         </service>
 
+        <service id="BOWAutoInternalLinks\Acl\TagManagementAclPrivilegeDecorator">
+            <tag name="shopware.acl.privilege"/>
+            <argument type="service" id="Shopware\Core\Framework\Api\Acl\AclPrivilegeCollection"/>
+        </service>
+
         <service id="BOWAutoInternalLinks\Service\LinkGeneratorService">
             <argument type="service" id="bow_auto_link.repository"/>
             <argument type="service" id="product.repository"/>
