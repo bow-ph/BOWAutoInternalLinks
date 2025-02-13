@@ -1,6 +1,7 @@
 import template from './bow-tag-management.html.twig';
 
-const { Component, Mixin } = Shopware;
+Shopware.Component.register('bow-tag-management', {
+    template,
 const { Criteria } = Shopware.Data;
 
 export default {
