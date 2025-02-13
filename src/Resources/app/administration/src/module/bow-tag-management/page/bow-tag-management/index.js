@@ -4,6 +4,7 @@ const { Component, Mixin } = Shopware;
 const { Criteria } = Shopware.Data;
 
 export default {
+    name: 'bow-tag-management',
     template,
 
     inject: [
