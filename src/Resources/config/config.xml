@@ -25,5 +25,12 @@
             <label lang="de-DE">Kategorie-zu-Produkt-Links aktivieren</label>
             <defaultValue>true</defaultValue>
         </input-field>
+
+        <input-field type="bool">
+            <name>enableCmsLinks</name>
+            <label>Enable CMS page links</label>
+            <label lang="de-DE">CMS-Seiten-Links aktivieren</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
     </card>
 </config>
