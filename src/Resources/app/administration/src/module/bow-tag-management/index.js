@@ -24,11 +24,19 @@ Shopware.Module.register('bow-tag-management', {
     routes: {
         index: {
             component: 'bow-tag-management',
-            path: 'index'
+            path: 'index',
+            meta: {
+                parentPath: 'sw.marketing.index',
+                privilege: 'bow_auto_links.viewer'
+            }
         },
         logs: {
             component: 'bow-log-viewer',
-            path: 'logs'
+            path: 'logs',
+            meta: {
+                parentPath: 'sw.marketing.index',
+                privilege: 'bow_auto_links.viewer'
+            }
         }
     },
 
