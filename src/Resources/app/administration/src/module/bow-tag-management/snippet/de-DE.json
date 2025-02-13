@@ -5,7 +5,8 @@
             "descriptionTextModule": "Tag-basierte interne Verlinkung verwalten",
             "refresh": "Aktualisieren",
             "priority": "Priorität",
-            "statistics": "Statistiken"
+            "statistics": "Statistiken",
+            "logs": "Logs"
         },
         "list": {
             "columnName": "Name",

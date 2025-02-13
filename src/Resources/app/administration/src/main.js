@@ -1,4 +1,5 @@
 // Import components first to ensure they're registered before module registration
+import './module/bow-tag-management/page/bow-tag-management-index';
 import './module/bow-tag-management/page/bow-tag-management';
 import './module/bow-tag-management/page/bow-log-viewer';
 
@@ -17,19 +18,30 @@ Shopware.Module.register('bow-tag-management', {
 
     routes: {
         index: {
-            component: 'bow-tag-management',
-            path: 'bow.tag.management.index',
-            meta: {
-                parentPath: 'sw.marketing.index',
-                privilege: 'bow_auto_links.viewer'
-            }
-        },
-        logs: {
-            component: 'bow-log-viewer',
-            path: 'bow.tag.management.logs',
-            meta: {
-                parentPath: 'sw.marketing.index',
-                privilege: 'bow_auto_links.viewer'
+            component: 'bow-tag-management-index',
+            path: 'index',
+            redirect: {
+                name: 'bow.tag.management.index'
+            },
+            children: {
+                list: {
+                    component: 'bow-tag-management',
+                    path: 'list',
+                    name: 'bow.tag.management.index',
+                    meta: {
+                        parentPath: 'sw.marketing.index',
+                        privilege: 'bow_auto_links.viewer'
+                    }
+                },
+                logs: {
+                    component: 'bow-log-viewer',
+                    path: 'logs',
+                    name: 'bow.tag.management.logs',
+                    meta: {
+                        parentPath: 'sw.marketing.index',
+                        privilege: 'bow_auto_links.viewer'
+                    }
+                }
             }
         }
     },

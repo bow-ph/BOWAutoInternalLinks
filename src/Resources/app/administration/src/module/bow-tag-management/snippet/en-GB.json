@@ -5,7 +5,8 @@
             "descriptionTextModule": "Manage tag-based internal linking",
             "refresh": "Refresh",
             "priority": "Priority",
-            "statistics": "Statistics"
+            "statistics": "Statistics",
+            "logs": "Logs"
         },
         "list": {
             "columnName": "Name",
