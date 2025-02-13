@@ -1,0 +1,26 @@
+{% block bow_tag_management_index %}
+    <sw-page class="bow-tag-management">
+        {% block bow_tag_management_smart_bar %}
+            <template slot="smart-bar-header">
+                <h2>{{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}</h2>
+            </template>
+        {% endblock %}
+
+        {% block bow_tag_management_content %}
+            <template slot="content">
+                <sw-container>
+                    <sw-tabs :small="false" positionIdentifier="bow-tag-management-tabs">
+                        <sw-tabs-item :route="{ name: 'bow.tag.management.index' }">
+                            {{ $tc('bow-tag-management.general.mainMenuItemGeneral') }}
+                        </sw-tabs-item>
+                        <sw-tabs-item :route="{ name: 'bow.tag.management.logs' }">
+                            {{ $tc('bow-tag-management.general.logs') }}
+                        </sw-tabs-item>
+                    </sw-tabs>
+                </sw-container>
+
+                <router-view></router-view>
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}
