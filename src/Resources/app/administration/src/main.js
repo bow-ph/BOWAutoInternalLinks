@@ -20,6 +20,11 @@ Shopware.Module.register('bow-tag-management', {
         index: {
             component: 'bow-tag-management-index',
             path: 'index',
+            name: 'bow.tag.management.index',
+            meta: {
+                parentPath: 'sw.marketing.index',
+                privilege: 'bow_auto_links.viewer'
+            },
             children: {
                 management: {
                     component: 'bow-tag-management',
@@ -45,7 +50,7 @@ Shopware.Module.register('bow-tag-management', {
 
     navigation: [{
         id: 'bow-tag-management',
-        path: 'bow.tag.management.management',
+        path: 'bow.tag.management.index',
         label: 'bow-tag-management.general.mainMenuItemGeneral',
         parent: 'sw-marketing',
         privilege: 'bow_auto_links.viewer',
