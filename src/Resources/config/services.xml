@@ -19,7 +19,7 @@
         </service>
 
         <service id="BOWAutoInternalLinks\Service\LinkGeneratorService">
-            <argument type="service" id="bow_auto_link.repository"/>
+            <argument type="service" id="bow_auto_link_tag.repository"/>
             <argument type="service" id="product.repository"/>
             <argument type="service" id="category.repository"/>
             <argument type="service" id="cache.app"/>
