@@ -6,7 +6,9 @@
             "refresh": "Aktualisieren",
             "priority": "Priorität",
             "statistics": "Statistiken",
-            "logs": "Logs"
+            "logs": "Logs",
+            "editTag": "Tag bearbeiten",
+            "viewLinks": "Links anzeigen"
         },
         "list": {
             "columnName": "Name",

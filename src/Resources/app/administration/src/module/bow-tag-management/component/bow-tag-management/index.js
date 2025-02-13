@@ -23,21 +23,27 @@ Component.register('bow-tag-management', {
             tagStats: {},
             columns: [{
                 property: 'name',
-                label: 'Name',
+                label: this.$tc('bow-tag-management.list.columnName'),
                 routerLink: 'sw.tag.detail',
-                primary: true
+                primary: true,
+                visible: true,
+                rawData: true
             }, {
-                property: 'productCount',
-                label: 'Products'
+                property: 'products.length',
+                label: this.$tc('bow-tag-management.list.columnProducts'),
+                visible: true
             }, {
-                property: 'categoryCount',
-                label: 'Categories'
+                property: 'categories.length',
+                label: this.$tc('bow-tag-management.list.columnCategories'),
+                visible: true
             }, {
                 property: 'linkCount',
-                label: 'Auto Links'
+                label: this.$tc('bow-tag-management.list.columnLinks'),
+                visible: true
             }, {
                 property: 'priority',
-                label: 'Priority'
+                label: this.$tc('bow-tag-management.list.columnPriority'),
+                visible: true
             }]
         };
     },
@@ -110,6 +116,20 @@ Component.register('bow-tag-management', {
                     message: e.message
                 });
             }
+        },
+
+        onEditTag(item) {
+            this.$router.push({
+                name: 'sw.tag.detail',
+                params: { id: item.id }
+            });
+        },
+
+        onViewLinks(item) {
+            this.$router.push({
+                name: 'bow.tag.management.index.logs',
+                query: { tagId: item.id }
+            });
         }
     }
 });
