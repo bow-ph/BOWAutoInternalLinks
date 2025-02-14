@@ -25,6 +25,8 @@ class TagManagementService
         $criteria = new Criteria();
         $criteria->addAssociation('products');
         $criteria->addAssociation('categories');
+        // ✅ Ensure 'customFields' is explicitly included
+        $criteria->addAssociation('customFields');
         
         $tags = $this->tagRepository->search($criteria, $context);
         $statistics = [];

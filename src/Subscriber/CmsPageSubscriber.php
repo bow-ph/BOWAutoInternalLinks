@@ -34,17 +34,22 @@ class CmsPageSubscriber implements EventSubscriberInterface
             return;
         }
 
-        $maxLinks = (int) $this->systemConfigService->get('BOWAutoInternalLinks.config.maxLinksPerPage', 3);
-        
+        $maxLinks = (int) ($this->systemConfigService->get('BOWAutoInternalLinks.config.maxLinksPerPage', (string) null) ?? 3);
+
         foreach ($event->getResult() as $page) {
-            if ($page->getTags() && $page->getTags()->count() > 0) {
-                $relatedProducts = $this->linkGenerator->generateCmsLinks(
-                    $page->getId(),
-                    $event->getContext(),
-                    $maxLinks
-                );
-                
-                $page->addExtension('bowAutoLinks', $relatedProducts);
+            // ✅ Ensure tags are loaded before calling getTags()
+            if ($page->getTranslations()) {
+                foreach ($page->getTranslations() as $translation) {
+                    if ($translation->getTags() && $translation->getTags()->count() > 0) {
+                        $relatedProducts = $this->linkGenerator->generateCmsLinks(
+                            $page->getId(),
+                            $event->getContext(),
+                            $maxLinks
+                        );
+
+                        $page->addExtension('bowAutoLinks', $relatedProducts);
+                    }
+                }
             }
         }
     }
