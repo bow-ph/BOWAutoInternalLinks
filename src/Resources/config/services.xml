@@ -16,11 +16,15 @@
             <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearcherInterface"/>
             <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntityAggregatorInterface"/>
             <argument type="service" id="event_dispatcher"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Event\EntityLoadedEventFactory"/>
+
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Write\EntityWriteGatewayInterface"/>
         </service>
 
         <service id="bow_auto_link.repository" class="Shopware\Core\Framework\DataAbstractionLayer\EntityRepository">
             <argument type="service" id="BOWAutoInternalLinks\Core\Content\AutoLink\AutoLinkDefinition"/>
             <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Read\EntityReaderInterface"/>
+            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Write\EntityWriteGatewayInterface"/>
             <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\VersionManager"/>
             <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearcherInterface"/>
             <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntityAggregatorInterface"/>
@@ -32,21 +36,11 @@
             <tag name="shopware.entity.definition"/>
         </service>
 
-        <service id="bow_auto_link.repository" class="Shopware\Core\Framework\DataAbstractionLayer\EntityRepository">
-            <argument type="service" id="BOWAutoInternalLinks\Core\Content\AutoLink\AutoLinkDefinition"/>
-            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Read\EntityReaderInterface"/>
-            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\VersionManager"/>
-            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearcherInterface"/>
-            <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntityAggregatorInterface"/>
-            <argument type="service" id="event_dispatcher"/>
-        </service>
-
-
         <service id="BOWAutoInternalLinks\Service\LinkGeneratorService">
             <argument type="service" id="bow_auto_link_tag.repository"/>
             <argument type="service" id="product.repository"/>
             <argument type="service" id="category.repository"/>
-            <argument type="service" id="cache.app"/>
+            <argument type="service" id="cache.object"/>
         </service>
 
         <service id="BOWAutoInternalLinks\Subscriber\ProductPageSubscriber">
